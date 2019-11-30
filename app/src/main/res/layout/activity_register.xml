@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:gravity="center"
-    android:orientation="vertical">
+    tools:context="com.example.cs350_kaisend.ActivityRegister">
 
     <EditText
-        android:id="@+id/loginEmail"
+        android:id="@+id/ETemail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        android:importantForAutofill="no"/>
-
+        android:importantForAutofill="no"
+        />
     <EditText
-        android:id="@+id/loginpaswd"
+        android:id="@+id/ETpassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:hint="@string/password"
         android:inputType="numberPassword"
-        android:importantForAutofill="no"/>
-
+        android:importantForAutofill="no"
+        />
     <Button
-        android:id="@+id/btnLogIn"
+        android:id="@+id/btnSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:text="@string/login"
-        android:textSize="25sp" />
-
+        android:text="@string/sign_up"/>
     <TextView
         android:id="@+id/TVSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/already_have_an_account_sign_in_here"
         android:layout_margin="15dp"
-        android:text="@string/new_user_register_here"
-        android:textSize="20sp" />
+        android:textSize="20sp"/>
 </LinearLayout>

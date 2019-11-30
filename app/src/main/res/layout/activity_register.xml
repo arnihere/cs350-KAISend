@@ -25,6 +25,33 @@
         android:inputType="numberPassword"
         android:importantForAutofill="no"
         />
+    <EditText
+        android:id="@+id/userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:hint="@string/user_name"
+        android:inputType="textPersonName"
+        android:importantForAutofill="no"
+        />
+    <EditText
+        android:id="@+id/phoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:hint="@string/phone_number"
+        android:inputType="phone"
+        android:importantForAutofill="no"
+        />
+    <EditText
+        android:id="@+id/kakaoTalkId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:hint="@string/kakao_talk_id"
+        android:inputType="text"
+        android:importantForAutofill="no"
+        />
     <Button
         android:id="@+id/btnSignUp"
         android:layout_width="match_parent"

@@ -9,5 +9,8 @@
     <string name="login">Login</string>
     <string name="new_user_register_here">New user? Register here</string>
     <string name="logout">Logout</string>
+    <string name="user_name">User Name</string>
+    <string name="phone_number">Phone Number</string>
     <string name="welcome">Welcome</string>
+    <string name="kakao_talk_id">Kakao Talk ID</string>
 </resources>

@@ -36,7 +36,7 @@ public class AuctionListAdapter extends RecyclerView.Adapter<AuctionListAdapter.
     @Override
     public void onBindViewHolder(@NonNull AuctionViewHolder holder, int position) {
         Auction mCurrent = mAuctionListFiltered.get(position);
-        holder.mAuctionId.setText(String.valueOf(position));
+        holder.mAuctionId.setText(String.valueOf(position + 1));
         holder.mAuctionName.setText(String.valueOf(mCurrent.getName()));
         holder.mInitDest.setText(String.valueOf(mCurrent.getInitDest()));
         holder.mFinalDest.setText(String.valueOf(mCurrent.getFinalDest()));
@@ -60,7 +60,7 @@ public class AuctionListAdapter extends RecyclerView.Adapter<AuctionListAdapter.
                 }else{
                     LinkedList<Auction> filteredList = new LinkedList<>();
                     for (Auction auction : mAuctionList){
-                        if (auction.getName().contains(charString) || auction.getFinalDest().contains(charString) || auction.getInitDest().contains(charString)){
+                        if (auction.getName().toLowerCase().contains(charString) || auction.getFinalDest().toLowerCase().contains(charString) || auction.getInitDest().toLowerCase().contains(charString)){
                             filteredList.addLast(auction);
                         }
                     }mAuctionListFiltered = filteredList;
@@ -97,7 +97,7 @@ public class AuctionListAdapter extends RecyclerView.Adapter<AuctionListAdapter.
             int mPosition = getLayoutPosition();
             Intent intent = new Intent(mContext, IndividualAuction.class);
             Auction element = mAuctionList.get(mPosition);
-            intent.putExtra(IndividualAuction.EXTRA_ID, mPosition);
+            intent.putExtra(IndividualAuction.EXTRA_ID, mPosition + 1);
             intent.putExtra(IndividualAuction.EXTRA_NAME, element.getName());
             intent.putExtra(IndividualAuction.EXTRA_INITDEST, element.getInitDest());
             intent.putExtra(IndividualAuction.EXTRA_FINALDEST, element.getFinalDest());

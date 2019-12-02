@@ -2,6 +2,7 @@ package com.example.cs350_kaisend;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,16 +17,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainTextView = findViewById(R.id.helloWorldText);
-        ourButton = findViewById(R.id.ourButton);
+    }
 
-        ourButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mainTextView.setText("Android is horrible");
-            }
-        });
+    public void createAuction(View view) {
+        startActivity(new Intent(getApplicationContext(), AuctionCreation.class));
+        finish();
+    }
 
-
+    public void goToAuctionList(View view) {
+        startActivity(new Intent(getApplicationContext(), AuctionListView.class));
+        finish();
     }
 }

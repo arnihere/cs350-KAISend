@@ -7,7 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.widget.EditText;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -28,16 +31,35 @@ public class AuctionListView extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private AuctionListAdapter mAdapter;
 
+    private EditText mSearchBox;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auction_list_view);
         mRecyclerView = findViewById(R.id.recyclerview);
+        mSearchBox = findViewById(R.id.search_box);
         DatabaseReference aucRef = rootRef.child("auctions");
         auctions = new LinkedList<>();
         mAdapter = new AuctionListAdapter(this, auctions);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mSearchBox.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mAdapter.getFilter().filter(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         aucRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -46,7 +68,7 @@ public class AuctionListView extends AppCompatActivity {
                     Collections.sort(auctions, new Comparator<Auction>(){
                         @Override
                         public int compare(Auction o1, Auction o2) {
-                            return Integer.parseInt(o1.getFee()) > Integer.parseInt(o2.getFee()) ? -1 : (Integer.parseInt(o1.getFee()) < Integer.parseInt(o2.getFee())) ? 1 : 0;
+                            return Integer.parseInt(o1.getFee()) < Integer.parseInt(o2.getFee()) ? -1 : (Integer.parseInt(o1.getFee()) > Integer.parseInt(o2.getFee())) ? 0 : 1;
                         }
                     });
                     Log.d(TAG, auctions.toString());

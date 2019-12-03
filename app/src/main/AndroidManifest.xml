@@ -12,6 +12,9 @@
         <activity android:name=".UserActivity"></activity>
         <activity android:name=".ActivityRegister" />
         <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".IndividualAuction"></activity>
+        <activity android:name=".AuctionListView" />
+        <activity android:name=".AuctionCreation" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

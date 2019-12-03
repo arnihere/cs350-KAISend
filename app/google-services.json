@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "487325315235",
+    "firebase_url": "https://kaisend-9ab7f.firebaseio.com",
+    "project_id": "kaisend-9ab7f",
+    "storage_bucket": "kaisend-9ab7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:487325315235:android:2d0f384da31b6e1274cf16",
+        "android_client_info": {
+          "package_name": "com.example.cs350_kaisend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "487325315235-sbrlns8laui45lhpcvhvs0vq63559puf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cs350_kaisend",
+            "certificate_hash": "b3bcb6eb23806ad2ee1acdf55131a0d329569c92"
+          }
+        },
+        {
+          "client_id": "487325315235-idd8o26a6fs8m5t5a2rudlt571b1h9f7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWf9Ys3TGyWr0hvHl2r3Z6jiFB6KrWJkU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "487325315235-idd8o26a6fs8m5t5a2rudlt571b1h9f7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

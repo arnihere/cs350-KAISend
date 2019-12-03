@@ -87,12 +87,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Cancel"
+            android:id="@+id/button_cancel"
             android:background="@drawable/button_view"
             android:layout_marginRight="20dp"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:id="@+id/signup_button"
             android:text="Confirm"
             android:background="@drawable/button_view"
             android:layout_marginLeft="20dp"/>

@@ -24,10 +24,17 @@
         <Button
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@drawable/menu"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="7dp"
+            android:background="@drawable/menu_foreground"
+            android:layout_marginTop="5dp"
             android:layout_alignLeft="@id/title_myhome"
+            />
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/claim_foreground"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignRight="@id/title_myhome"
             />
     </RelativeLayout>
 

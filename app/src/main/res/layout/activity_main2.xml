@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         >
         <TextView
             android:layout_width="match_parent"
@@ -24,34 +24,34 @@
         <Button
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@drawable/menu"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="7dp"
+            android:background="@drawable/menu_foreground"
+            android:layout_marginLeft="5dp"
             android:layout_alignLeft="@id/title_home"
             />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Browse"
-            android:gravity="center"/>
-
-
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/claim_foreground"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignRight="@id/title_home"
+            />
     </RelativeLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="350dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome to the System!"
+            android:layout_marginTop="200dp"
+            android:gravity="center"
+            android:text="Welcome to KAISend"
+            android:textColor="#000000"
             android:textSize="30dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -62,31 +62,68 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.175" />
+    </LinearLayout>
 
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
         <Button
-            android:id="@+id/Sender"
-            android:layout_width="wrap_content"
+            android:id="@+id/btnLogOut"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="144dp"
-            android:text="Sender"
-            android:layout_marginLeft="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_view"
+            android:text="Log Out"
+            android:textSize="16dp">
+        </Button>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="30dp"
+            ><Button
+            android:id="@+id/Sender"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_view"
             android:clickable="true"
             android:onClick="goToAuctionList"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            android:text="Sender"
+            android:textSize="20dp"
+            android:textAllCaps="false"
+            />
 
-        <Button
-            android:id="@+id/Requester"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="144dp"
-            android:clickable="true"
-            android:layout_marginRight="30dp"
-            android:text="Requester"
-            android:onClick="createAuction"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/Requester"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
 
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_view"
+                android:clickable="true"
+                android:onClick="createAuction"
+                android:text="Requester"
+                android:textSize="20dp"
+                android:textAllCaps="false"/>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="120dp"
+        android:paddingTop="10dp"
+        android:text="* You can choose your status"
+        android:textColor="#000000" />
 </LinearLayout>

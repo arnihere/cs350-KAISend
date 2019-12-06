@@ -1,10 +1,13 @@
 package com.example.cs350_kaisend;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,16 +16,25 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class AuctionCreation extends AppCompatActivity {
+    private static final String TAG = "DUDE COME ON";
     private DatabaseReference rootRef;
     EditText mDeadline, mPrice,mName, mInitDest, mFinalDest, mDelivery;
     Button mSubmit,mCancel;
+    String userID;
     private Spinner spinner;
     //private Spinner mType = null;
 
@@ -41,6 +53,7 @@ public class AuctionCreation extends AppCompatActivity {
         mSubmit = findViewById(R.id.button_submit);
         mCancel = findViewById(R.id.button_cancel);
         spinner = findViewById(R.id.auction_type);
+        userID = FirebaseAuth.getInstance().getUid();
         //mType.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
 
         ArrayList<String> list = new ArrayList<String>();
@@ -67,9 +80,32 @@ public class AuctionCreation extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Some of the field(s) are empty", Toast.LENGTH_SHORT);
                     return;
                 }
-                DatabaseReference auctionRef = rootRef.child("auctions");
-                Auction auction = new Auction(name, initDest, finalDest, price, fee, deadline, description);
+                final DatabaseReference auctionRef = rootRef.child("auctions");
+                final Auction auction = new Auction(name, initDest, finalDest, price, fee, deadline, description);
                 auctionRef.push().setValue(auction);
+                final DatabaseReference userRef = rootRef.child("users");
+                final String currUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                auctionRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        String id = "";
+                        for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                            Log.d(TAG, "not working?!");
+                            id = String.valueOf(childSnapshot.getKey());
+                            auctionRef.child(id).child("id").setValue(id);
+
+                        }auctionRef.child(id).child("owner").setValue(userID);
+                        auction.setId(id);
+                        auction.setOwner(userID);
+                        userRef.child(currUser).child("hosted").push().setValue(id);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
 
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 finish();

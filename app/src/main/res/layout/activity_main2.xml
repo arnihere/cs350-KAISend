@@ -115,6 +115,19 @@
                 android:text="Requester"
                 android:textSize="20dp"
                 android:textAllCaps="false"/>
+            <Button
+                android:id="@+id/myRequests"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="80dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_view"
+                android:clickable="true"
+                android:onClick="myRequests"
+                android:text="My Requests"
+                android:textSize="20dp"
+                android:textAllCaps="false"/>
         </RelativeLayout>
 
 

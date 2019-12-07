@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/title_holdauction"
-            android:text="Search request"
+            android:text="My requests"
             android:textColor="#000000"
             android:gravity="center"
             android:textSize="25dp"

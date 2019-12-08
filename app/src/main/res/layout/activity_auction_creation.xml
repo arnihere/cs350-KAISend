@@ -47,7 +47,7 @@
 </TextView>
     <Spinner
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:gravity="center"
         android:id="@+id/auction_type"
         android:contextClickable="true"
@@ -56,12 +56,12 @@
         android:background="@drawable/type_view"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="15dp"
         tools:clickable="true">
     </Spinner>
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="39dp"
+        android:layout_height="40dp"
         android:id="@+id/auction_Name"
         android:hint="  Name"
         android:layout_marginTop="5dp"
@@ -69,10 +69,11 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:inputType="text"
+        android:paddingLeft="8dp"
         android:lines="1"/>
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="39dp"
+        android:layout_height="40dp"
         android:id="@+id/auction_From"
         android:hint="  From : (e.g.N1)"
         android:layout_marginTop="10dp"
@@ -80,10 +81,11 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:inputType="text"
+        android:paddingLeft="8dp"
         android:lines="1"/>
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="39dp"
+        android:layout_height="40dp"
         android:id="@+id/auction_To"
         android:hint="  To : (e.g.W1)"
         android:layout_marginTop="10dp"
@@ -91,10 +93,11 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:inputType="text"
+        android:paddingLeft="8dp"
         android:lines="1"/>
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="39dp"
+        android:layout_height="40dp"
         android:id="@+id/auction_Deadline"
         android:hint="  Deadline"
         android:layout_marginTop="10dp"
@@ -102,10 +105,11 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:inputType="text"
+        android:paddingLeft="8dp"
         android:lines="1"/>
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="39dp"
+        android:layout_height="40dp"
         android:id="@+id/auction_Detail"
         android:hint="  Detail"
         android:layout_marginTop="10dp"
@@ -113,32 +117,37 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:inputType="text"
+        android:paddingLeft="8dp"
         android:lines="1"/>
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="39dp"
+        android:layout_height="40dp"
         android:id="@+id/auction_Deliveryfee"
-        android:hint="  Delivery Fee(e.g.2000 won)"
+        android:hint="  Delivery Fee(e.g KRW 2000)"
         android:layout_marginTop="10dp"
         android:background="@drawable/edit_view"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:inputType="text"
+        android:inputType="number"
+        android:paddingLeft="8dp"
         android:lines="1"/>
     <EditText
 
         android:layout_width="match_parent"
-        android:layout_height="39dp"
+        android:layout_height="40dp"
         android:id="@+id/auction_Price"
-        android:hint="  Price(e.g.2000 won)"
+        android:hint="  Price(e.g. KRW 2000)"
         android:layout_marginTop="10dp"
         android:background="@drawable/edit_view"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:inputType="number"
+        android:paddingLeft="8dp"
+        android:lines="1"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="70dp"
+        android:paddingLeft="50dp"
         android:text="* If the item need to pay, please enter the item price"
         android:textColor="#000000" />
     <LinearLayout

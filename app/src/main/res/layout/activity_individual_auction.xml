@@ -1,123 +1,340 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".IndividualAuction">
+    android:layout_height="600dp"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/auctionId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/auctionName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/title_holdauction"
+            android:text="Enroll Auction"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:background="@drawable/text_view"
+            />
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/menu_foreground"
+            android:layout_marginLeft="5dp"
+            android:layout_alignLeft="@id/title_holdauction"
+            />
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/claim_foreground"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignRight="@id/title_holdauction"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/auctionId" />
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp">
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="Auction ID :"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:layout_gravity="center">
+        </TextView>
+        <TextView
+            android:id="@+id/auctionId"
+            android:text="123"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:background="@drawable/auctiondetai_view"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:layout_marginLeft="30dp"
+            android:paddingLeft="8dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        >
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="Auction Name :"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:layout_gravity="center">
+        </TextView>
+        <TextView
+            android:id="@+id/auctionName"
+            android:text="123"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:background="@drawable/auctiondetai_view"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:layout_marginLeft="30dp"
+            android:paddingLeft="8dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        >
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="Item Price :"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:layout_gravity="center">
+        </TextView>
+        <TextView
+            android:id="@+id/itemprice"
+            android:text="123"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:background="@drawable/auctiondetai_view"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:layout_marginLeft="30dp"
+            android:paddingLeft="8dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        >
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="From :"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:layout_gravity="center">
+        </TextView>
+        <TextView
+            android:id="@+id/initDest"
+            android:text="123"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:background="@drawable/auctiondetai_view"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:layout_marginLeft="30dp"
+            android:paddingLeft="8dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        >
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="To :"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:layout_gravity="center">
+        </TextView>
+        <TextView
+            android:id="@+id/finalDest"
+            android:text="123"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:background="@drawable/auctiondetai_view"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:layout_marginLeft="30dp"
+            android:paddingLeft="8dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        >
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="Deadline :"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:layout_gravity="center">
+        </TextView>
+        <TextView
+            android:id="@+id/deadline"
+            android:text="123"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:background="@drawable/auctiondetai_view"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:layout_marginLeft="30dp"
+            android:paddingLeft="8dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        >
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="Active :"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:layout_gravity="center">
+        </TextView>
+        <TextView
+            android:id="@+id/active"
+            android:text="123"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:background="@drawable/auctiondetai_view"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:layout_marginLeft="30dp"
+            android:paddingLeft="8dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        >
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:text="Fee :"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:layout_gravity="center">
+        </TextView>
+        <TextView
+            android:id="@+id/fee"
+            android:text="123"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:background="@drawable/auctiondetai_view"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:layout_marginLeft="30dp"
+            android:paddingLeft="8dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/initDest"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deadline" />
-
-    <TextView
-        android:id="@+id/finalDest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/auctionName" />
-
-    <TextView
-        android:id="@+id/deadline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/finalDest" />
-
-    <TextView
-        android:id="@+id/active"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deadline" />
-
-    <TextView
-        android:id="@+id/fee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/active" />
-
+        android:text="* Please enter your ideal delivery fee :"
+        android:paddingLeft="30dp"
+        android:paddingTop="20dp"
+        android:textColor="#000000">
+    </TextView>
     <EditText
         android:id="@+id/delivery"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:ems="10"
-        android:hint="Delivery Fee"
+        android:hint="  Delivery Fee(e.g. KRW 2000)"
+        android:background="@drawable/text_view"
         android:inputType="number"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/enroll"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/active" />
+        android:paddingLeft="8dp"
+        android:lines="1"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
+        <Button
+            android:id="@+id/enroll"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Enroll"
+            android:textColor="#000000"
+            android:background="@drawable/button_view"
+            android:visibility="visible"
+            />
 
-    <Button
-        android:id="@+id/enroll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enroll"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fee" />
+        <Button
+            android:id="@+id/stop"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Stop"
+            android:textColor="#000000"
+            android:background="@drawable/button_view"
+            android:visibility="visible"
+            />
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cancel"
+            android:textColor="#000000"
+            android:background="@drawable/button_view"
+            android:visibility="visible"
+            />
 
-    <Button
-        android:id="@+id/stop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stop"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fee" />
-    <Button
-        android:id="@+id/cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cancel"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fee" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</LinearLayout>

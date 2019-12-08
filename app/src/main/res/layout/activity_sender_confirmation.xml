@@ -131,6 +131,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:id="@+id/paymentCost"
+            android:textColor="#000000"
+            android:textSize="10dp"
+            ></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
             android:id="@+id/paymentCon"
             android:textColor="#000000"
             android:textSize="10dp"

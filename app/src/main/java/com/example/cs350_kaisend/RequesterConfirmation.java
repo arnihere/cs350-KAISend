@@ -46,6 +46,7 @@ public class RequesterConfirmation extends AppCompatActivity {
         final TextView Iprice = findViewById(R.id.iprice);
         final TextView Iname = findViewById(R.id.iname);
         final TextView Itype = findViewById(R.id.itype);
+        final TextView payCost = findViewById(R.id.paymentCost);
         DatabaseReference userRequestRef = database.getReference("users/" + uid + "/deliveries/request");
         userRequestRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -103,6 +104,7 @@ public class RequesterConfirmation extends AppCompatActivity {
                             String name = dataSnapshot.child("item/name").getValue(String.class);
                             Integer price = dataSnapshot.child("item/price").getValue(Integer.class);
                             String type = dataSnapshot.child("item/type").getValue(String.class);
+                            Integer payment = dataSnapshot.child("payment").getValue(Integer.class);
 
                             Log.w("DeadLine", deadline);
                             DeadLine.setText("Deadline: "+ deadline);
@@ -111,6 +113,7 @@ public class RequesterConfirmation extends AppCompatActivity {
                             Iprice.setText("Price: "+ price);
                             Iname.setText("Name: "+ name);
                             Itype.setText("Type: "+type);
+                            payCost.setText("Payment Cost: "+payment);
 
                             if (paymentConfirm == false) {
                                 payCon.setText("Payment Confirmation: Not confirmed yet");

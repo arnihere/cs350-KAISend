@@ -4,42 +4,57 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.core.Tag;
+
 
 public class Main2Activity extends AppCompatActivity {
     private TextView mainTextView;
     private Button ourButton;
+    FirebaseDatabase database;
     Button btnLogOut;
+    FirebaseUser user;
+    String uid;
     private Button requestButton, senderButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        database = FirebaseDatabase.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        uid = user.getUid();
+        Log.d("Arggggggg", "users/" + uid + "/deliveries");
+
 /**
-        requestButton = findViewById(R.id.Requester);
-        senderButton = findViewById(R.id.Sender);
+ requestButton = findViewById(R.id.Requester);
+ senderButton = findViewById(R.id.Sender);
 
-        requestButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AuctionCreation.class));
-                finish();
-            }
-        });
+ requestButton.setOnClickListener(new View.OnClickListener() {
+@Override public void onClick(View view) {
+startActivity(new Intent(getApplicationContext(), AuctionCreation.class));
+finish();
+}
+});
 
-        senderButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AuctionListView.class));
-                finish();
-            }
-        });
-**/
+ senderButton.setOnClickListener(new View.OnClickListener() {
+@Override public void onClick(View view) {
+startActivity(new Intent(getApplicationContext(), AuctionListView.class));
+finish();
+}
+});
+ **/
         btnLogOut = findViewById(R.id.btnLogOut);
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,13 +69,51 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     public void createAuction(View view) {
-        startActivity(new Intent(getApplicationContext(), AuctionCreation.class));
+        DatabaseReference userRequestRef = database.getReference("users/" + uid+"/deliveries/request");
+        userRequestRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                //   Get Post object and use the values to update the UI
+                String request = dataSnapshot.getValue(String.class);
+                if (request == null) {
+                    startActivity(new Intent(getApplicationContext(), AuctionCreation.class));
+                } else {
+                    startActivity(new Intent(getApplicationContext(), RequesterConfirmation.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("readDeliveriesError", "loadPost:onCancelled", databaseError.toException());
+            }
+        });
+
         finish();
     }
+
 
     public void goToAuctionList(View view) {
-        startActivity(new Intent(getApplicationContext(), AuctionListView.class));
+        DatabaseReference userSendRef = database.getReference("users/" + uid+"/deliveries/send");
+        userSendRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                //   Get Post object and use the values to update the UI
+                String send = dataSnapshot.getValue(String.class);
+                if (send == null) {
+                    startActivity(new Intent(getApplicationContext(), AuctionListView.class));
+                } else {
+                    startActivity(new Intent(getApplicationContext(), SenderConfirmation.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("readDeliveriesError", "loadPost:onCancelled", databaseError.toException());
+            }
+        });
+
         finish();
     }
-
 }

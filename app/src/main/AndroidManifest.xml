@@ -15,6 +15,7 @@
         <activity android:name=".AddClaimActivity" />
         <activity android:name=".AdminActivity" />
         <activity android:name=".UserActivity" />
+        <activity android:name=".MyRequests"></activity>
         <activity android:name=".ActivityRegister" />
         <activity android:name=".Main2Activity" />
         <activity android:name=".IndividualAuction" />

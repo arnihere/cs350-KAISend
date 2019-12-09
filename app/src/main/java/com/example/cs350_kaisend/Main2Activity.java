@@ -54,4 +54,7 @@ public class Main2Activity extends AppCompatActivity {
         finish();
     }
 
+    public void myRequests(View view) {
+        startActivity(new Intent(getApplicationContext(), MyRequests.class));
+    }
 }

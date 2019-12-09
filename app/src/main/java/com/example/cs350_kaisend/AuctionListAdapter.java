@@ -2,9 +2,11 @@ package com.example.cs350_kaisend;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
@@ -12,9 +14,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.LinkedList;
 
 public class AuctionListAdapter extends RecyclerView.Adapter<AuctionListAdapter.AuctionViewHolder> implements Filterable {
+    private static final String TAG = "PLS";
     private LinkedList<Auction> mAuctionList;
     private LinkedList<Auction> mAuctionListFiltered;
     private LayoutInflater mInflater;
@@ -78,6 +88,8 @@ public class AuctionListAdapter extends RecyclerView.Adapter<AuctionListAdapter.
 
     class AuctionViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public final TextView mAuctionId, mAuctionName, mInitDest, mFinalDest, mDeadline, mFee;
+
+        String userID;
         final AuctionListAdapter mAdapter;
         public AuctionViewHolder(View itemView, AuctionListAdapter adapter){
             super(itemView);
@@ -87,6 +99,7 @@ public class AuctionListAdapter extends RecyclerView.Adapter<AuctionListAdapter.
             mFinalDest = itemView.findViewById(R.id.finalDest);
             mDeadline = itemView.findViewById(R.id.deadline);
             mFee = itemView.findViewById(R.id.fee);
+            userID = FirebaseAuth.getInstance().getUid();
             this.mAdapter = adapter;
             itemView.setOnClickListener(this);
 
@@ -96,7 +109,7 @@ public class AuctionListAdapter extends RecyclerView.Adapter<AuctionListAdapter.
         public void onClick(View v) {
             int mPosition = getLayoutPosition();
             Intent intent = new Intent(mContext, IndividualAuction.class);
-            Auction element = mAuctionList.get(mPosition);
+            final Auction element = mAuctionList.get(mPosition);
             intent.putExtra(IndividualAuction.EXTRA_ID, mPosition + 1);
             intent.putExtra(IndividualAuction.EXTRA_NAME, element.getName());
             intent.putExtra(IndividualAuction.EXTRA_INITDEST, element.getInitDest());
@@ -104,7 +117,10 @@ public class AuctionListAdapter extends RecyclerView.Adapter<AuctionListAdapter.
             intent.putExtra(IndividualAuction.EXTRA_DEAD, element.getDeadline());
             intent.putExtra(IndividualAuction.EXTRA_ACTIVE, element.isActive());
             intent.putExtra(IndividualAuction.EXTRA_FEE, element.getFee());
+            intent.putExtra(IndividualAuction.EXTRA_USERID, userID);
+            intent.putExtra(IndividualAuction.EXTRA_AUCTIONID, element.getId());
             mContext.startActivity(intent);
+
 
 
 

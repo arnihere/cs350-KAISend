@@ -1,7 +1,7 @@
 package com.example.cs350_kaisend;
 
 public class Auction {
-    String name, initDest, finalDest, price, fee, deadline, description;
+    String name, initDest, finalDest, price, fee, deadline, description,id, owner;
     boolean active;
 
     public Auction(){}
@@ -14,8 +14,20 @@ public class Auction {
         this.deadline = deadline;
         this.description = description;
         this.active = true;
-    }
 
+    }
+    public void setId(String id){
+        this.id = id;
+    }
+    public String getId(){
+        return this.id;
+    }
+    public void setOwner(String owner){
+        this.owner = owner;
+    }
+    public String getOwner(){
+        return this.owner;
+    }
     public String getDeadline() {
         return deadline;
     }

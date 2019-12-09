@@ -92,10 +92,6 @@ public class ActivityRegister extends AppCompatActivity {
                                 userInfo.put("phoneNumber",phoneN);
                                 userInfo.put("kakaoTalkID",kakaoId);
                                 userRef.setValue(userInfo);
-                                HashMap<String, String> deliveries = new HashMap<>();
-                                deliveries.put("request","");
-                                deliveries.put("send","");
-                                userRef.child("deliveries").setValue(deliveries);
                                 userRef.child("sends").setValue(0);
                                 userRef.child("requests").setValue(0);
                                 userRef.child("penaltyPoints").setValue(0);

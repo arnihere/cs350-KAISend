@@ -9,16 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".RequesterConfirmation"></activity>
+        <activity android:name=".SenderConfirmation" />
         <activity android:name=".MyRequests"></activity>
         <activity android:name=".UserActivity" />
         <activity android:name=".ActivityRegister" />
-        <activity android:name=".Main2Activity"></activity>
-        <activity android:name=".IndividualAuction"></activity>
+        <activity android:name=".Main2Activity" />
+        <activity android:name=".IndividualAuction" />
         <activity android:name=".AuctionListView" />
         <activity android:name=".AuctionCreation" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

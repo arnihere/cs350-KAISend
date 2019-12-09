@@ -4,15 +4,25 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.core.Tag;
+
 
 public class Main2Activity extends AppCompatActivity {
     private TextView mainTextView;
     private Button ourButton;
+    FirebaseDatabase database;
     Button btnLogOut;
     private Button requestButton, senderButton;
 
@@ -63,7 +73,4 @@ public class Main2Activity extends AppCompatActivity {
         finish();
     }
 
-    public void myRequests(View view) {
-        startActivity(new Intent(getApplicationContext(), MyRequests.class));
-    }
 }

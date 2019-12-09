@@ -9,167 +9,486 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="30dp"
         >
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:text="You are sender"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:textSize="35dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:text="Requester Contact"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:id="@+id/requesterName"
-            android:textColor="#000000"
-            android:textSize="10dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:id="@+id/requesterEmail"
-            android:textColor="#000000"
-            android:textSize="10dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:id="@+id/requesterPhoneNumber"
-            android:textColor="#000000"
-            android:textSize="10dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:id="@+id/requesterKakaoID"
-            android:textColor="#000000"
-            android:textSize="10dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:text="Item Information"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:id="@+id/iname"
-            android:textColor="#000000"
-            android:textSize="10dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:id="@+id/itype"
-            android:textColor="#000000"
-            android:textSize="10dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:id="@+id/iprice"
-            android:textColor="#000000"
-            android:textSize="10dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:id="@+id/iDest"
-            android:textColor="#000000"
-            android:textSize="10dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:id="@+id/fDest"
-            android:textColor="#000000"
-            android:textSize="10dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:id="@+id/deadLine"
-            android:textColor="#000000"
-            android:textSize="10dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:text="Conformation State"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:id="@+id/paymentCost"
-            android:textColor="#000000"
-            android:textSize="10dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:id="@+id/paymentCon"
-            android:textColor="#000000"
-            android:textSize="10dp"
-            ></TextView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:id="@+id/deliveryCon"
-            android:textColor="#000000"
-            android:textSize="10dp"
-            ></TextView>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_height="60dp"
             >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/title_registration"
+                android:text="Confirmation"
+                android:textColor="#000000"
+                android:gravity="center"
+                android:textSize="25dp"
+                android:background="@drawable/text_view"
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/menu_foreground"
+                android:layout_marginLeft="5dp"
+                android:layout_alignLeft="@id/title_registration"
+                />
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/claim_foreground"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_alignRight="@id/title_registration"
+                />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:background="@drawable/text_view">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Requster Contact"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                ></TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp">
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Name :"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_gravity="center">
+                </TextView>
+                <TextView
+                    android:id="@+id/requesterName"
+                    android:text="123"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:background="@drawable/auctiondetai_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="8dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp">
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Email :"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_gravity="center">
+                </TextView>
+                <TextView
+                    android:id="@+id/requesterEmail"
+                    android:text="123"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:background="@drawable/auctiondetai_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="8dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp">
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Phone Number :"
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    android:layout_gravity="center">
+                </TextView>
+                <TextView
+                    android:id="@+id/requesterPhoneNumber"
+                    android:text="123"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:background="@drawable/auctiondetai_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="8dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp">
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Kakako ID :"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_gravity="center">
+                </TextView>
+                <TextView
+                    android:id="@+id/requesterKakaoID"
+                    android:text="123"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:background="@drawable/auctiondetai_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="8dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/text_view">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Item Information"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                ></TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp">
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Name :"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_gravity="center">
+                </TextView>
+                <TextView
+                    android:id="@+id/iname"
+                    android:text="123"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:background="@drawable/auctiondetai_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="8dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp">
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Type :"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_gravity="center">
+                </TextView>
+                <TextView
+                    android:id="@+id/itype"
+                    android:text="123"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:background="@drawable/auctiondetai_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="8dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp">
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Price :"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_gravity="center">
+                </TextView>
+                <TextView
+                    android:id="@+id/iprice"
+                    android:text="123"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:background="@drawable/auctiondetai_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="8dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp">
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="From :"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_gravity="center">
+                </TextView>
+                <TextView
+                    android:id="@+id/iDest"
+                    android:text="123"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:background="@drawable/auctiondetai_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="8dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp">
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="To :"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_gravity="center">
+                </TextView>
+                <TextView
+                    android:id="@+id/fDest"
+                    android:text="123"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:background="@drawable/auctiondetai_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="8dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp">
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Deadline :"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_gravity="center">
+                </TextView>
+                <TextView
+                    android:id="@+id/deadLine"
+                    android:text="123"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:background="@drawable/auctiondetai_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="8dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:paddingBottom="20dp"
+            android:background="@drawable/text_view">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="Conformation State"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                ></TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp">
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Payment Cost:"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_gravity="center">
+                </TextView>
+                <TextView
+                    android:id="@+id/paymentCost"
+                    android:text="123"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:background="@drawable/auctiondetai_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="8dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp">
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Payment Con :"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_gravity="center">
+                </TextView>
+                <TextView
+                    android:id="@+id/paymentCon"
+                    android:text="123"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:background="@drawable/auctiondetai_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="8dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp">
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Delivery Con :"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:layout_gravity="center">
+                </TextView>
+                <TextView
+                    android:id="@+id/deliveryCon"
+                    android:text="123"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    android:background="@drawable/auctiondetai_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_marginLeft="30dp"
+                    android:paddingLeft="8dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            >
             <Button
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:id="@+id/paymentCon_button"
                 android:text="Payment Confirm"
                 android:textSize="15dp"
                 android:clickable="true"
-                android:onClick="paymentConfirm"
+                android:onClick="deliveryConfirm"
                 android:layout_marginLeft="20dp"
-                android:background="@drawable/button_view" />
+                android:id="@+id/paymentCon_button"
+                android:background="@drawable/button_view"
+                android:textAllCaps="false"/>
 
             <Button
                 android:layout_width="150dp"
@@ -180,7 +499,8 @@
                 android:clickable="true"
                 android:onClick="backToMain2Activity"
                 android:layout_marginLeft="200dp"
-                android:background="@drawable/button_view" />
+                android:background="@drawable/button_view"
+                android:textAllCaps="false"/>
 
         </RelativeLayout>
     </LinearLayout>

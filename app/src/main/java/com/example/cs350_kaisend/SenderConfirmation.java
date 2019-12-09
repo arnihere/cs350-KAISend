@@ -24,6 +24,7 @@ public class SenderConfirmation extends AppCompatActivity {
     FirebaseUser user;
     String uid;
     Button payConBut;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

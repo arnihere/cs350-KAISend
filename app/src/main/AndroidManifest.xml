@@ -14,6 +14,8 @@
         <activity android:name=".BrowseClaimActivity" />
         <activity android:name=".AddClaimActivity" />
         <activity android:name=".AdminActivity" />
+        <activity android:name=".RequesterConfirmation"></activity>
+        <activity android:name=".SenderConfirmation" />
         <activity android:name=".UserActivity" />
         <activity android:name=".MyRequests"></activity>
         <activity android:name=".ActivityRegister" />

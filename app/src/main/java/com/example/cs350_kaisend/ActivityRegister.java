@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ActivityRegister extends AppCompatActivity {
-    public EditText emailId, passwd, userNam, phoneNumbe, kakaoTalkI;
+    public EditText emailId, passwd, userNam, phoneNumbe, kakaoTalkI, passwd2;
     Button btnSignUp;
     TextView signIn;
     FirebaseAuth firebaseAuth;
@@ -33,9 +33,10 @@ public class ActivityRegister extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         emailId = findViewById(R.id.signup_email);
         passwd = findViewById(R.id.signup_password1);
+        passwd2 = findViewById(R.id.signup_password2);
         userNam = findViewById(R.id.signup_username);
         phoneNumbe = findViewById(R.id.signup_phonenumber);
-        //kakaoTalkI = findViewById(R.id.kakaoTalkId);
+        kakaoTalkI = findViewById(R.id.signup_kakaoid);
         btnSignUp = findViewById(R.id.signup_button);
         signIn = findViewById(R.id.button_cancel);
 
@@ -44,26 +45,34 @@ public class ActivityRegister extends AppCompatActivity {
             public void onClick(View view) {
                 final String emailID = emailId.getText().toString();
                 final String paswd = passwd.getText().toString();
+                final String paswd2 = passwd2.getText().toString();
                 final String Name = userNam.getText().toString();
                 final String phoneN = phoneNumbe.getText().toString();
-                //final String kakaoId = kakaoTalkI.getText().toString();
+                final String kakaoId = kakaoTalkI.getText().toString();
                 if (emailID.isEmpty()) {
                     emailId.setError("Provide your Email first!");
                     emailId.requestFocus();
-                } else if (paswd.isEmpty()) {
-                    passwd.setError("Set your password");
-                    passwd.requestFocus();
-                } else if (Name.isEmpty()){
+                }  else if (Name.isEmpty()){
                     userNam.setError("Provide user name first!");
                     userNam.requestFocus();
-                } else if (phoneN.isEmpty()){
+                }  else if (kakaoId.isEmpty()){
+                    kakaoTalkI.setError("provide KakaoTalkID first!");
+                    kakaoTalkI.requestFocus();
+                }  else if (phoneN.isEmpty()){
                     phoneNumbe.setError("Provide phone number firse!");
                     phoneNumbe.requestFocus();
-                } //else if (kakaoId.isEmpty()){
-                   // kakaoTalkI.setError("provide KakaoTalkID first!");
-                   // kakaoTalkI.requestFocus();
-            //    }
-                else {
+                }  else if (paswd.isEmpty()) {
+                    passwd.setError("Set your password");
+                    passwd.requestFocus();
+                }  else if (paswd2.isEmpty()){
+                    passwd2.setError("Confirm your password!");
+                    passwd2.requestFocus();
+                }  else if(paswd.compareTo(paswd2)!=0) {
+                    passwd.getText().clear();
+                    passwd2.getText().clear();
+                    passwd.setError("Password and Confirmed Password are different!");
+                    passwd.requestFocus();
+                }  else {
                     firebaseAuth.createUserWithEmailAndPassword(emailID, paswd).addOnCompleteListener(ActivityRegister.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task task) {
@@ -81,7 +90,7 @@ public class ActivityRegister extends AppCompatActivity {
                                 userInfo.put("email",emailID);
                                 userInfo.put("password",paswd);
                                 userInfo.put("phoneNumber",phoneN);
-                              //  userInfo.put("kakaoTalkID",kakaoId);
+                                userInfo.put("kakaoTalkID",kakaoId);
                                 userRef.setValue(userInfo);
                                 userRef.child("sends").setValue(0);
                                 userRef.child("requests").setValue(0);

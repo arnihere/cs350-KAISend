@@ -23,7 +23,7 @@ public class SenderConfirmation extends AppCompatActivity {
     FirebaseDatabase database;
     FirebaseUser user;
     String uid;
-
+    Button payConBut;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +45,7 @@ public class SenderConfirmation extends AppCompatActivity {
         final TextView Iname = findViewById(R.id.iname);
         final TextView Itype = findViewById(R.id.itype);
         final TextView payCost = findViewById(R.id.paymentCost);
+        payConBut = findViewById(R.id.paymentCon_button);
         DatabaseReference userRequestRef = database.getReference("users/" + uid + "/deliveries/send");
         userRequestRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -117,8 +118,10 @@ public class SenderConfirmation extends AppCompatActivity {
 
                             if (paymentConfirm == false) {
                                 payCon.setText("Payment Confirmation: Not confirmed yet");
+                                payConBut.setText("Payment Confirm");
                             } else {
                                 payCon.setText("Payment Confirmation: Confirmed");
+                                payConBut.setText("Undo Confirm");
                             }
                             if (deliveryConfirm == false) {
                                 deliCon.setText("Delivery Confirmation: Not confirmed yet");
@@ -142,7 +145,12 @@ public class SenderConfirmation extends AppCompatActivity {
         });
     }
     public void paymentConfirm(View view) {
-        deliveryRef.child("paymentConfirm").setValue(true);
+        if (payConBut.getText()=="Undo Confirm"){
+            deliveryRef.child("paymentConfirm").setValue(false);
+        }
+        else {
+            deliveryRef.child("paymentConfirm").setValue(true);
+        }
     }
     public void backToMain2Activity(View view){
         startActivity(new Intent(getApplicationContext(), Main2Activity.class));

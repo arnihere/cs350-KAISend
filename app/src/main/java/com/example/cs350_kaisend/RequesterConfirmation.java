@@ -21,11 +21,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class RequesterConfirmation extends AppCompatActivity {
 
-    DatabaseReference senderUidRef,
-            deliveryRef, senderRef;
+    DatabaseReference senderUidRef, deliveryRef, senderRef;
     FirebaseDatabase database;
     FirebaseUser user;
     String uid;
+    Button deliConBut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,7 @@ public class RequesterConfirmation extends AppCompatActivity {
         final TextView Iname = findViewById(R.id.iname);
         final TextView Itype = findViewById(R.id.itype);
         final TextView payCost = findViewById(R.id.paymentCost);
+        deliConBut = findViewById(R.id.deliveryCon_button);
         DatabaseReference userRequestRef = database.getReference("users/" + uid + "/deliveries/request");
         userRequestRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -122,8 +123,10 @@ public class RequesterConfirmation extends AppCompatActivity {
                             }
                             if (deliveryConfirm == false) {
                                 deliCon.setText("Delivery Confirmation: Not confirmed yet");
+                                deliConBut.setText("Delivery Confirm");
                             } else {
                                 deliCon.setText("Delivery Confirmation: Confirmed");
+                                deliConBut.setText("Undo Confirm");
                             }
                         }
 
@@ -144,7 +147,12 @@ public class RequesterConfirmation extends AppCompatActivity {
     }
 
     public void deliveryConfirm(View view) {
-        deliveryRef.child("deliveryConfirm").setValue(true);
+        if(deliConBut.getText()=="Undo Confirm"){
+            deliveryRef.child("deliveryConfirm").setValue(false);
+        }
+        else {
+            deliveryRef.child("deliveryConfirm").setValue(true);
+        }
     }
     public void backToMain2Activity(View view){
         startActivity(new Intent(getApplicationContext(), Main2Activity.class));

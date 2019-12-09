@@ -163,6 +163,7 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:id="@+id/paymentCon_button"
                 android:text="Payment Confirm"
                 android:textSize="15dp"
                 android:clickable="true"

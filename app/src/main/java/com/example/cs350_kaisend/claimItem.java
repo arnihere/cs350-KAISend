@@ -1,13 +1,15 @@
 package com.example.cs350_kaisend;
 
 public class claimItem {
-    private String requester, sender, itemName;
+    private String requester, sender, itemName, senderUID, requsterUID;
     private Integer price;
 
-    public claimItem(String requester, String sender, String itemName, Integer price) {
+    public claimItem(String requester, String sender, String itemName, Integer price, String senderUID, String requsterUID) {
         this.requester = requester;
         this.sender = sender;
         this.itemName = itemName;
+        this.senderUID = senderUID;
+        this.requsterUID = requsterUID;
         this.price = price;
     }
 
@@ -41,5 +43,21 @@ public class claimItem {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public String getSenderUID() {
+        return senderUID;
+    }
+
+    public void setSenderUID(String senderUID) {
+        this.senderUID = senderUID;
+    }
+
+    public String getRequsterUID() {
+        return requsterUID;
+    }
+
+    public void setRequsterUID(String requsterUID) {
+        this.requsterUID = requsterUID;
     }
 }

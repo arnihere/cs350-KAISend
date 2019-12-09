@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BrowseClaimActivity"></activity>
+        <activity android:name=".ManageClaimActivity"></activity>
+        <activity android:name=".ClaimActivity" />
+        <activity android:name=".BrowseClaimActivity" />
         <activity android:name=".AddClaimActivity" />
         <activity android:name=".AdminActivity" />
         <activity android:name=".UserActivity" />

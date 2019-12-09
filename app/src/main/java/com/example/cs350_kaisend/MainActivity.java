@@ -41,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
                 if (user != null) {
                     Toast.makeText(MainActivity.this, "User logged in ", Toast.LENGTH_SHORT).show();
                     Intent I = new Intent(MainActivity.this, Main2Activity.class);
+                    if(user.getEmail().equals("admin@kaist.ac.kr")){
+                        I = new Intent (MainActivity.this, ClaimActivity.class);
+                        Toast.makeText(MainActivity.this, "Logged in as admin", Toast.LENGTH_SHORT).show();
+                    }
                     startActivity(I);
                 } else {
                     Toast.makeText(MainActivity.this, "Login to continue", Toast.LENGTH_SHORT).show();
@@ -57,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
         btnLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String userEmail = loginEmailId.getText().toString();
-                String userPaswd = logInpasswd.getText().toString();
+                final String userEmail = loginEmailId.getText().toString();
+                final String userPaswd = logInpasswd.getText().toString();
                 if (userEmail.isEmpty()) {
                     loginEmailId.setError("Provide your Email first!");
                     loginEmailId.requestFocus();
@@ -72,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
                             if (!task.isSuccessful()) {
                                 Toast.makeText(MainActivity.this, "Not sucessfull", Toast.LENGTH_SHORT).show();
                             } else {
+                                if (userEmail.equals("admin@kaist.ac.kr")){
+                                    startActivity(new Intent(MainActivity.this, ClaimActivity.class));
+                                }
                                 startActivity(new Intent(MainActivity.this, Main2Activity.class));
                             }
                         }

@@ -40,7 +40,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="39dp"
-        android:id="@+id/auction_Name"
+        android:id="@+id/claim_title"
         android:hint="  Title"
         android:layout_marginTop="5dp"
         android:background="@drawable/edit_view"
@@ -51,13 +51,13 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="390dp"
-        android:id="@+id/auction_From"
+        android:id="@+id/claim_content"
         android:hint="  Content of Claim"
         android:layout_marginTop="10dp"
         android:background="@drawable/edit_view"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:inputType="text"
+        android:inputType="textMultiLine"
         android:lines="10"/>
 
     <LinearLayout

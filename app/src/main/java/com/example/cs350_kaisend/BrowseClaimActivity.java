@@ -3,6 +3,7 @@ package com.example.cs350_kaisend;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,11 +26,13 @@ public class BrowseClaimActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private ListView listView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse_claim);
 
+        final ArrayList<claimItem> claimItems = new ArrayList<claimItem>();
         database = FirebaseDatabase.getInstance();
         final DatabaseReference userRef = database.getReference().child("users");
         final DatabaseReference deliveryRef = database.getReference().child("deliveries");
@@ -43,7 +46,7 @@ public class BrowseClaimActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         try{
-                            ArrayList<claimItem> claimItems = new ArrayList<claimItem>();
+
                             JSONObject deliveriesObject = new JSONObject((HashMap)dataSnapshot.getValue());
                             JSONArray deliveriesArray = deliveriesObject.toJSONArray(deliveriesObject.names());
                             for (int i=0; i<deliveriesArray.length(); i++){
@@ -56,7 +59,7 @@ public class BrowseClaimActivity extends AppCompatActivity {
                                 String requester = userArray.getJSONObject(requesterUID).getString("userName");
                                 Integer price = deliveryItem.getJSONObject("item").getInt("price");
 
-                                claimItem item1 = new claimItem(requester, sender, item, price);
+                                claimItem item1 = new claimItem(requester, sender, item, price, senderUID, requesterUID);
                                 claimItems.add(item1);
                             }
 
@@ -83,7 +86,16 @@ public class BrowseClaimActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                claimItem item = claimItems.get(position);
+                Intent intent = new Intent(BrowseClaimActivity.this, AddClaimActivity.class);
+                intent.putExtra("sender", item.getSender());
+                intent.putExtra("requester", item.getRequester());
+                intent.putExtra("item", item.getItemName());
+                intent.putExtra("price", item.getPrice());
+                intent.putExtra("senderUID", item.getSenderUID());
+                intent.putExtra("requesterUID", item.getRequsterUID());
 
+                startActivity(intent);
             }
         });
     }

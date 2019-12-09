@@ -121,9 +121,6 @@ public class AuctionListAdapter extends RecyclerView.Adapter<AuctionListAdapter.
             intent.putExtra(IndividualAuction.EXTRA_AUCTIONID, element.getId());
             mContext.startActivity(intent);
 
-
-
-
         }
     }
 }

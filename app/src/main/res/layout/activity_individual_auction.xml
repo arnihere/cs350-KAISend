@@ -6,114 +6,292 @@
     android:layout_height="match_parent"
     tools:context=".IndividualAuction">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        tools:ignore="MissingConstraints"
+        android:id="@+id/Top">
+
+        <TextView
+            android:id="@+id/title_holdauction"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/text_view"
+            android:gravity="center"
+            android:text="Enroll Auction"
+            android:textColor="#000000"
+            android:textSize="25dp" />
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/menu_foreground"
+            android:layout_marginLeft="5dp"
+            android:layout_alignLeft="@id/title_holdauction"
+            />
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/claim_foreground"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignRight="@id/title_holdauction"
+            />
+    </RelativeLayout>
+
     <TextView
-        android:id="@+id/auctionId"
+        android:id="@+id/view1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="40dp"
+        android:text="Auction ID : "
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/Top"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-3dp"></TextView>
+
+    <TextView
+        android:id="@+id/auctionId"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/auctiondetai_view"
+        android:gravity="center"
+        android:text="123"
+        android:textColor="#000000"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/view1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="40dp"
+        android:text="Auction Name : "
+        android:textStyle="bold"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/auctionId"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"></TextView>
 
     <TextView
         android:id="@+id/auctionName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/auctiondetai_view"
+        android:gravity="center"
+        android:text="123"
+        android:textColor="#000000"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/auctionId" />
 
     <TextView
-        android:id="@+id/initDest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deadline" />
+        android:paddingLeft="40dp"
+        android:text="From : "
+        android:textStyle="bold"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/auctionName"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-4dp"></TextView>
 
     <TextView
-        android:id="@+id/finalDest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
+        android:id="@+id/initDest"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/auctiondetai_view"
+        android:gravity="center"
+        android:text="123"
+        android:textColor="#000000"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/auctionName" />
 
     <TextView
-        android:id="@+id/deadline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
+        android:paddingLeft="40dp"
+        android:text="To : "
+        android:textStyle="bold"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/initDest"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-3dp"></TextView>
+
+    <TextView
+        android:id="@+id/finalDest"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/auctiondetai_view"
+        android:gravity="center"
+        android:text="123"
+        android:textColor="#000000"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/initDest" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="40dp"
+        android:text="Deadline : "
+        android:textStyle="bold"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/finalDest"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-3dp"></TextView>
+
+    <TextView
+        android:id="@+id/deadline"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/auctiondetai_view"
+        android:gravity="center"
+        android:text="123"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/finalDest" />
 
     <TextView
-        android:id="@+id/active"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
+        android:paddingLeft="40dp"
+        android:text="Status : "
+        android:textStyle="bold"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/deadline"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"></TextView>
+
+    <TextView
+        android:id="@+id/active"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/auctiondetai_view"
+        android:gravity="center"
+        android:text="123"
+        android:textColor="#000000"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/deadline" />
 
     <TextView
-        android:id="@+id/fee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="60dp"
+        android:paddingLeft="40dp"
+        android:text="Fee ( KRW ) : "
+        android:textStyle="bold"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/active"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"></TextView>
+
+    <TextView
+        android:id="@+id/fee"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/auctiondetai_view"
+        android:gravity="center"
+        android:text="123"
+        android:textColor="#000000"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/active" />
 
+    <TextView
+        android:id="@+id/note1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:paddingLeft="30dp"
+        android:paddingTop="20dp"
+        android:text="* Please enter your ideal delivery fee :"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/active"
+        tools:layout_editor_absoluteX="0dp" />
+
     <EditText
         android:id="@+id/delivery"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="290dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="35dp"
         android:ems="10"
-        android:hint="Delivery Fee"
+        android:hint="Delivery Fee(e.g. KRW 2000)"
         android:inputType="number"
+        android:paddingLeft="8dp"
         android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/enroll"
+        android:background="@drawable/edit_view"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/active" />
+        app:layout_constraintTop_toBottomOf="@+id/fee" />
 
     <Button
         android:id="@+id/enroll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
         android:text="Enroll"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fee" />
 
     <Button
         android:id="@+id/stop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
         android:text="Stop"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fee" />
+
     <Button
         android:id="@+id/cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginRight="52dp"
         android:text="Cancel"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"

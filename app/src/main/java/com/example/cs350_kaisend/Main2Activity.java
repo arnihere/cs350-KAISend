@@ -15,32 +15,23 @@ public class Main2Activity extends AppCompatActivity {
     private Button ourButton;
     Button btnLogOut;
     private Button requestButton, senderButton;
+    private Button makeClaimButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-/**
-        requestButton = findViewById(R.id.Requester);
-        senderButton = findViewById(R.id.Sender);
 
-        requestButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AuctionCreation.class));
-                finish();
-            }
-        });
-
-        senderButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AuctionListView.class));
-                finish();
-            }
-        });
-**/
+        makeClaimButton = findViewById(R.id.btnClaim);
         btnLogOut = findViewById(R.id.btnLogOut);
+
+        makeClaimButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Main2Activity.this, BrowseClaimActivity.class);
+                startActivity(intent);
+            }
+        });
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

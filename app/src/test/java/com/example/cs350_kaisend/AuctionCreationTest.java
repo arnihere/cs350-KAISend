@@ -24,7 +24,8 @@ public class AuctionCreationTest {
             @Override
             public Boolean answer(InvocationOnMock invocation) throws Throwable {
                 CharSequence a = (CharSequence) invocation.getArguments()[0];
-                return !(a != null && a.length() > 0);
+                String b = a.toString().trim();
+                return !(a != null && a.length() > 0 && b.length() > 0);
             }
         });
         PowerMockito.when(TextUtils.isDigitsOnly(any(CharSequence.class))).thenAnswer(new Answer<Boolean>() {
@@ -32,7 +33,7 @@ public class AuctionCreationTest {
             public Boolean answer(InvocationOnMock invocation) throws Throwable {
                 CharSequence a = (CharSequence) invocation.getArguments()[0];
                 try{
-                    int temp = Integer.parseInt(a.toString());
+                    int temp = Integer.parseInt(a.toString().trim());
                 }catch (NumberFormatException e){
                     return false;
                 }return true;
@@ -40,25 +41,35 @@ public class AuctionCreationTest {
         });
     }
     @Test
-    public void isValid1() {
+    public void emptyString() {
         AuctionCreation auctionCreation = new AuctionCreation();
         boolean output = auctionCreation.isValid("a","a","","a","12","12");
         assertFalse(output);
     }
     @Test
-    public void isValid2() {
+    public void nonparseableString() {
         AuctionCreation auctionCreation = new AuctionCreation();
         boolean output = auctionCreation.isValid("ss","ss","ss","a","2","a");
         assertFalse(output);
     }@Test
-    public void isValid3() {
+    public void nullValue() {
         AuctionCreation auctionCreation = new AuctionCreation();
         boolean output = auctionCreation.isValid("1","1","1","1","2",null);
         assertFalse(output);
     }@Test
-    public void isValid4() {
+    public void mixedValuesString() {
         AuctionCreation auctionCreation = new AuctionCreation();
         boolean output = auctionCreation.isValid("ss","ss","a","a","100","3 won");
         assertFalse(output);
+    }@Test
+    public void spacedEmptyStrings() {
+        AuctionCreation auctionCreation = new AuctionCreation();
+        boolean output = auctionCreation.isValid(" "," "," "," ","100","3");
+        assertFalse(output);
+    }@Test
+    public void validStringsWithSomeSpaces() {
+        AuctionCreation auctionCreation = new AuctionCreation();
+        boolean output = auctionCreation.isValid("s s","s     s","a   ","  a "," 100","3  ");
+        assertTrue(output);
     }
 }

@@ -71,7 +71,7 @@ public class ActivityRegister extends AppCompatActivity {
                 }  else if (paswd2.isEmpty()){
                     passwd2.setError("Confirm your password!");
                     passwd2.requestFocus();
-                }  else if(paswd.compareTo(paswd2)!=0) {
+                }  else if(!passwordMatch(paswd, paswd2)) {
                     passwd.getText().clear();
                     passwd2.getText().clear();
                     passwd.setError("Password and Confirmed Password are different!");
@@ -117,8 +117,12 @@ public class ActivityRegister extends AppCompatActivity {
         });
     }
 
-    private boolean isValidEmail(String emailID) {
+    public boolean isValidEmail(String emailID) {
         if (!emailID.contains("@kaist.ac.kr")) return false;
         return true;
+    }
+    public boolean passwordMatch(String pwd1, String pwd2){
+        return pwd1.equals(pwd2);
+
     }
 }

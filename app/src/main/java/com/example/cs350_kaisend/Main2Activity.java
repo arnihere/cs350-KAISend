@@ -95,7 +95,7 @@ public class Main2Activity extends AppCompatActivity {
 
                 //   Get Post object and use the values to update the UI
                 String send = dataSnapshot.getValue(String.class);
-                if (send == null) {
+                if (isNull(send)) {
                     startActivity(new Intent(getApplicationContext(), AuctionListView.class));
                 } else {
                     startActivity(new Intent(getApplicationContext(), SenderConfirmation.class));
@@ -115,5 +115,7 @@ public class Main2Activity extends AppCompatActivity {
     public void myRequests(View view) {
         startActivity(new Intent(getApplicationContext(), MyRequests.class));
     }
-
+    public boolean isNull(String send){
+        return send == null;
+    }
 }

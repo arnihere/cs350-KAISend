@@ -19,7 +19,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
+import java.util.Map;
 
 public class IndividualAuction extends AppCompatActivity {
     public static final String EXTRA_ID = "com.individualAuction.EXTRA_ID";
@@ -118,16 +122,51 @@ public class IndividualAuction extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot childSnapshot : dataSnapshot.getChildren()){
                             Log.d(TAG, "for loop?");
-                            for (DataSnapshot grandchildSnapshot : childSnapshot.getChildren()){
+                            for (DataSnapshot grandchildSnapshot : childSnapshot.getChildren()) {
                                 curr = Integer.parseInt(String.valueOf(grandchildSnapshot.getValue()));
+                                if (curr < min) {
+                                    rootRef.child("auctions").child(auctionID).child("winner").child("id").setValue(String.valueOf(grandchildSnapshot.getKey()));
+                                    min = curr;
+                                    rootRef.child("auctions").child(auctionID).child("winner").child("fee").setValue(min);
+                                }
                             }
-                            if (curr < min){
-                                winner = String.valueOf(childSnapshot.getValue());
-                                min = curr;
-                            }
-                        }rootRef.child("auctions").child(auctionID).child("winner").setValue(winner);
+
+                        }
                         rootRef.child("auctions").child(auctionID).child("active").setValue(false);
                         mStop.setVisibility(View.INVISIBLE);
+                        DatabaseReference specificAuctionRef = rootRef.child("auctions").child(auctionID);
+                        specificAuctionRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                try {
+                                    JSONObject someAuction = new JSONObject((HashMap) dataSnapshot.getValue());
+                                    Boolean active = someAuction.getBoolean("active");
+                                    String deadline = someAuction.getString("deadline");
+                                    String initDest = someAuction.getString("initDest");
+                                    String finalDest = someAuction.getString("finalDest");
+                                    int price = Integer.parseInt(someAuction.getString("price"));
+                                    String hoster = someAuction.getString("owner");
+                                    JSONObject winnerjson = (JSONObject) someAuction.get("winner");
+                                    String name = someAuction.getString("name");
+                                    int fee = winnerjson.getInt("fee");
+                                    String winner = winnerjson.getString("id");
+                                    Item item = new Item(deadline, initDest, finalDest, name, "none", price);
+                                    Delivery del = new Delivery(hoster, winner, item, fee);
+                                    HashMap<String, Delivery> hm = new HashMap<>();
+                                    hm.put(auctionID, del);
+                                    rootRef.child("deliveries").updateChildren((Map) hm);
+
+                                }catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
                     }
 
                     @Override

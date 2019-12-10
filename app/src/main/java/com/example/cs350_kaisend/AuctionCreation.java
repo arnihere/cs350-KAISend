@@ -25,6 +25,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -75,9 +77,9 @@ public class AuctionCreation extends AppCompatActivity {
                 String price = mPrice.getText().toString();
                 String fee = mDelivery.getText().toString();
                 String description = "Need to get " + name + " from " + initDest + " to " + finalDest + " until " +
-                        deadline + ". " + "Item's price is " + price + "delivery fee is " +  fee + ".";
-                if (TextUtils.isEmpty(name) || TextUtils.isEmpty(initDest) || TextUtils.isEmpty(finalDest) || TextUtils.isEmpty(deadline) || TextUtils.isEmpty(fee)){
-                    Toast.makeText(getApplicationContext(), "Some of the field(s) are empty", Toast.LENGTH_SHORT);
+                        deadline + ". " + "Item's price is " + price + "Delivery fee is " +  fee + ".";
+                if (isValid(name, initDest, finalDest,deadline, fee, price)){
+                    Toast.makeText(getApplicationContext(), "Some of the field(s) are empty or fee/price is not digits only! ", Toast.LENGTH_SHORT);
                     return;
                 }
                 final DatabaseReference auctionRef = rootRef.child("auctions");
@@ -132,5 +134,11 @@ public class AuctionCreation extends AppCompatActivity {
         public void onNothingSelected(AdapterView<?> parent) {
             System.out.println("nothingSelect");
         }
+    }
+    public boolean isValid(String name, String initDest, String finalDest, String deadline, String fee, String price){
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(initDest) || TextUtils.isEmpty(finalDest) || TextUtils.isEmpty(deadline) || TextUtils.isEmpty(fee) || TextUtils.isEmpty(price)){
+            return false;
+        }if (!TextUtils.isDigitsOnly(fee) || !TextUtils.isDigitsOnly(price)) return false;
+        return true;
     }
 }

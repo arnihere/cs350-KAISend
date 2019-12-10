@@ -24,6 +24,7 @@ public class AuctionCreationTest {
             @Override
             public Boolean answer(InvocationOnMock invocation) throws Throwable {
                 CharSequence a = (CharSequence) invocation.getArguments()[0];
+                if (a == null) return true;
                 String b = a.toString().trim();
                 return !(a != null && a.length() > 0 && b.length() > 0);
             }
@@ -36,7 +37,8 @@ public class AuctionCreationTest {
                     int temp = Integer.parseInt(a.toString().trim());
                 }catch (NumberFormatException e){
                     return false;
-                }return true;
+                }
+                return true;
             }
         });
     }
@@ -54,7 +56,7 @@ public class AuctionCreationTest {
     }@Test
     public void nullValue() {
         AuctionCreation auctionCreation = new AuctionCreation();
-        boolean output = auctionCreation.isValid("1","1","1","1","2",null);
+        boolean output = auctionCreation.isValid(null,"1","1","1","2","2");
         assertFalse(output);
     }@Test
     public void mixedValuesString() {

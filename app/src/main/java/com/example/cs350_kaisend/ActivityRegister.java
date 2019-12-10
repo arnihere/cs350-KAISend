@@ -52,7 +52,11 @@ public class ActivityRegister extends AppCompatActivity {
                 if (emailID.isEmpty()) {
                     emailId.setError("Provide your Email first!");
                     emailId.requestFocus();
-                }  else if (Name.isEmpty()){
+                }else if (!isValidEmail(emailID)){
+                    emailId.setError("Provide your KAIST Email!");
+                    emailId.requestFocus();
+                }
+                else if (Name.isEmpty()){
                     userNam.setError("Provide user name first!");
                     userNam.requestFocus();
                 }  else if (kakaoId.isEmpty()){
@@ -72,7 +76,8 @@ public class ActivityRegister extends AppCompatActivity {
                     passwd2.getText().clear();
                     passwd.setError("Password and Confirmed Password are different!");
                     passwd.requestFocus();
-                }  else {
+                }
+                else {
                     firebaseAuth.createUserWithEmailAndPassword(emailID, paswd).addOnCompleteListener(ActivityRegister.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task task) {
@@ -110,5 +115,10 @@ public class ActivityRegister extends AppCompatActivity {
                 startActivity(I);
             }
         });
+    }
+
+    private boolean isValidEmail(String emailID) {
+        if (!emailID.contains("@kaist.ac.kr")) return false;
+        return true;
     }
 }

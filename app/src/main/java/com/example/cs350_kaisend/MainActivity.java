@@ -77,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Not sucessfull", Toast.LENGTH_SHORT).show();
                             } else {
                                 if (userEmail.equals("admin@kaist.ac.kr")){
-                                    startActivity(new Intent(MainActivity.this, ClaimActivity.class));
+                                    //startActivity(new Intent(MainActivity.this, ClaimActivity.class));
                                 }
-                                startActivity(new Intent(MainActivity.this, Main2Activity.class));
+                                //startActivity(new Intent(MainActivity.this, Main2Activity.class));
                             }
                         }
                     });

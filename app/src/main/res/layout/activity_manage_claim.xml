@@ -169,7 +169,7 @@
             android:layout_weight="1"
             android:text="Ignore Claim"
             android:textSize="19dp"
-            android:id="@+id/button_cancel"
+            android:id="@+id/button_ignore"
             android:background="@drawable/button_view"
             android:layout_marginRight="20dp"
             android:textAllCaps="false"/>
@@ -177,7 +177,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/signup_button"
+            android:id="@+id/button_penalty"
             android:text="Give Penalty"
             android:textSize="19dp"
             android:background="@drawable/button_view"

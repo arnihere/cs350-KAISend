@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +28,7 @@ import java.util.HashMap;
 public class ClaimActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private ListView listView;
+    private Button logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class ClaimActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         final DatabaseReference claimsRef = database.getReference().child("claims");
         listView = findViewById(R.id.claimListview);
+        logout = findViewById(R.id.hiddenLogoutButton);
 
         claimsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -55,6 +58,8 @@ public class ClaimActivity extends AppCompatActivity {
                         Integer price = deliveryItem.getInt("price");
 
                         claimItem item1 = new claimItem(requester, sender, item, price, senderUID, requesterUID);
+                        item1.setTitle(deliveryItem.getString("title"));
+                        item1.setContent(deliveryItem.getString("content"));
                         claimItems.add(item1);
                     }
 
@@ -82,8 +87,20 @@ public class ClaimActivity extends AppCompatActivity {
                 intent.putExtra("price", item.getPrice());
                 intent.putExtra("senderUID", item.getSenderUID());
                 intent.putExtra("requesterUID", item.getRequsterUID());
+                intent.putExtra("title", item.getTitle());
+                intent.putExtra("content", item.getContent());
+                intent.putExtra("position", position);
 
                 startActivity(intent);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent I = new Intent(ClaimActivity.this, MainActivity.class);
+                startActivity(I);
             }
         });
 

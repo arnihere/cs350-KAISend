@@ -36,6 +36,8 @@ public class AddClaimActivity extends AppCompatActivity {
                 String item = getIntent().getStringExtra("item");
 
                 claimItem sendClaimItem = new claimItem(requester, sender, item, price, senderUID, requesterUID);
+                sendClaimItem.setTitle(title.getText().toString());
+                sendClaimItem.setContent(content.getText().toString());
                 FirebaseDatabase.getInstance().getReference().child("claims").push().setValue(sendClaimItem);
 
                 Toast.makeText(AddClaimActivity.this, "Claim successfully added", Toast.LENGTH_SHORT).show();

@@ -1,7 +1,7 @@
 package com.example.cs350_kaisend;
 
 public class claimItem {
-    private String requester, sender, itemName, senderUID, requsterUID;
+    private String requester, sender, itemName, senderUID, requsterUID, title, content;
     private Integer price;
 
     public claimItem(String requester, String sender, String itemName, Integer price, String senderUID, String requsterUID) {
@@ -59,5 +59,21 @@ public class claimItem {
 
     public void setRequsterUID(String requsterUID) {
         this.requsterUID = requsterUID;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

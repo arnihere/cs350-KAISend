@@ -25,6 +25,8 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@drawable/menu_foreground"
+            android:id="@+id/hiddenLogoutButton"
+            android:clickable="true"
             android:layout_marginLeft="5dp"
             android:layout_alignLeft="@id/title_holdauction"
             />

@@ -114,6 +114,17 @@
                 android:layout_marginTop="30dp">
             </Button>
         <Button
+        android:id="@+id/btnClaim"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
+        android:textAllCaps="false"
+        android:background="@drawable/button_view"
+        android:text="Make a Claim"
+        android:textSize="20dp">
+    </Button>
+        <Button
         android:id="@+id/btnLogOut"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
@@ -124,17 +135,6 @@
         android:text="Log Out" android:textAllCaps="false"
         android:textSize="20dp">
          </Button>
-        <Button
-            android:id="@+id/btnClaim"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/button_view"
-            android:text="Make a Claim"
-            android:textSize="16dp">
-        </Button>
+
     </LinearLayout>
 </LinearLayout>

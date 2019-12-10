@@ -42,7 +42,8 @@ public class Main2Activity extends AppCompatActivity {
         btnLogOut = findViewById(R.id.btnLogOut);
         makeClaimButton = findViewById(R.id.btnClaim);
         btnLogOut = findViewById(R.id.btnLogOut);
-
+        senderButton = findViewById(R.id.Sender);
+        requestButton = findViewById(R.id.Requester);
         makeClaimButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,6 +59,31 @@ public class Main2Activity extends AppCompatActivity {
                 Intent I = new Intent(Main2Activity.this, MainActivity.class);
                 startActivity(I);
 
+            }
+        });
+        DatabaseReference userDeliRef = database.getReference("users/" + uid+"/deliveries");
+        userDeliRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                //   Get Post object and use the values to update the UI
+                String send = dataSnapshot.child("send").getValue(String.class);
+                String request = dataSnapshot.child("request").getValue(String.class);
+                if (send == null) {
+                    senderButton.setText("Sender");
+                } else {
+                    senderButton.setText("Sender!!!");
+                }
+                if (request == null) {
+                    requestButton.setText("Requester");
+                } else {
+                    requestButton.setText("Requester!!!");
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("readDeliveriesError", "loadPost:onCancelled", databaseError.toException());
             }
         });
     }

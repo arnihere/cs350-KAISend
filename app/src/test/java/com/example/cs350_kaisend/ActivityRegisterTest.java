@@ -35,7 +35,7 @@ public class ActivityRegisterTest {
         assertFalse(activityRegister.passwordMatch(pwd1,pwd2));
     }
     @Test
-    public void nullAndSpace() {
+    public void emptyAndSpace() {
         String pwd1 = "";
         String pwd2 = " ";
         assertFalse(activityRegister.passwordMatch(pwd1,pwd2));

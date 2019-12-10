@@ -156,8 +156,8 @@ public class IndividualAuction extends AppCompatActivity {
                                     HashMap<String, Delivery> hm = new HashMap<>();
                                     hm.put(auctionID, del);
                                     rootRef.child("deliveries").updateChildren((Map) hm);
-                                    rootRef.child(winner).child("deliveries/send").setValue(auctionID);
-                                    rootRef.child(hoster).child("deliveries/request").setValue(auctionID);
+                                    rootRef.child("users").child(winner).child("deliveries/send").setValue(auctionID);
+                                    rootRef.child("users").child(hoster).child("deliveries/request").setValue(auctionID);
 
                                 }catch (JSONException e) {
                                     e.printStackTrace();

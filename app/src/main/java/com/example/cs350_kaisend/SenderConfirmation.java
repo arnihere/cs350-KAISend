@@ -69,10 +69,10 @@ public class SenderConfirmation extends AppCompatActivity {
                                     String senderEmail = dataSnapshot.child("email").getValue(String.class);
                                     String senderPhoneNumber = dataSnapshot.child("phoneNumber").getValue(String.class);
                                     String senderKakao = dataSnapshot.child("kakaoTalkID").getValue(String.class);
-                                    requestName.setText("Name: " + senderName);
-                                    requestEmail.setText("Email: " + senderEmail);
-                                    requestPhoneNumber.setText("Phone Number: " + senderPhoneNumber);
-                                    requestKakaoId.setText("KakaoTalkID: " + senderKakao);
+                                    requestName.setText(senderName);
+                                    requestEmail.setText(senderEmail);
+                                    requestPhoneNumber.setText(senderPhoneNumber);
+                                    requestKakaoId.setText(senderKakao);
                                 }
 
                                 @Override
@@ -108,26 +108,26 @@ public class SenderConfirmation extends AppCompatActivity {
 
 
                             Log.w("DeadLine", deadline);
-                            DeadLine.setText("Deadline: "+ deadline);
-                            FDest.setText("Send to: "+ finalDest);
-                            Idest.setText("From: "+initDest);
-                            Iprice.setText("Price: "+ price);
-                            Iname.setText("Name: "+ name);
-                            Itype.setText("Type: "+type);
-                            payCost.setText("Payment Cost: "+payment);
+                            DeadLine.setText(deadline);
+                            FDest.setText(finalDest);
+                            Idest.setText(initDest);
+                            Iprice.setText(price);
+                            Iname.setText(name);
+                            Itype.setText(type);
+                            payCost.setText(payment);
 
 
                             if (paymentConfirm == false) {
-                                payCon.setText("Payment Confirmation: Not confirmed yet");
+                                payCon.setText("Not confirmed yet");
                                 payConBut.setText("Payment Confirm");
                             } else {
-                                payCon.setText("Payment Confirmation: Confirmed");
+                                payCon.setText("Confirmed");
                                 payConBut.setText("Undo Confirm");
                             }
                             if (deliveryConfirm == false) {
-                                deliCon.setText("Delivery Confirmation: Not confirmed yet");
+                                deliCon.setText("Not confirmed yet");
                             } else {
-                                deliCon.setText("Delivery Confirmation: Confirmed");
+                                deliCon.setText("Confirmed");
                             }
                         }
 

@@ -70,10 +70,10 @@ public class RequesterConfirmation extends AppCompatActivity {
                                     String senderEmail = dataSnapshot.child("email").getValue(String.class);
                                     String senderPhoneNumber = dataSnapshot.child("phoneNumber").getValue(String.class);
                                     String senderKakao = dataSnapshot.child("kakaoTalkID").getValue(String.class);
-                                    sendName.setText("Name: " + senderName);
-                                    sendEmail.setText("Email: " + senderEmail);
-                                    sendPhoneNumber.setText("Phone Number: " + senderPhoneNumber);
-                                    sendKakaoId.setText("KakaoTalkID: " + senderKakao);
+                                    sendName.setText(senderName);
+                                    sendEmail.setText(senderEmail);
+                                    sendPhoneNumber.setText(senderPhoneNumber);
+                                    sendKakaoId.setText(senderKakao);
                                 }
 
                                 @Override
@@ -108,24 +108,24 @@ public class RequesterConfirmation extends AppCompatActivity {
                             Integer payment = dataSnapshot.child("payment").getValue(Integer.class);
 
                             Log.w("DeadLine", deadline);
-                            DeadLine.setText("Deadline: "+ deadline);
-                            FDest.setText("Send to: "+ finalDest);
-                            Idest.setText("From: "+initDest);
-                            Iprice.setText("Price: "+ price);
-                            Iname.setText("Name: "+ name);
-                            Itype.setText("Type: "+type);
-                            payCost.setText("Payment Cost: "+payment);
+                            DeadLine.setText(deadline);
+                            FDest.setText(finalDest);
+                            Idest.setText(initDest);
+                            Iprice.setText(price);
+                            Iname.setText(name);
+                            Itype.setText(type);
+                            payCost.setText(payment);
 
                             if (paymentConfirm == false) {
-                                payCon.setText("Payment Confirmation: Not confirmed yet");
+                                payCon.setText("Not confirmed yet");
                             } else {
-                                payCon.setText("Payment Confirmation: Confirmed");
+                                payCon.setText("Confirmed");
                             }
                             if (deliveryConfirm == false) {
-                                deliCon.setText("Delivery Confirmation: Not confirmed yet");
+                                deliCon.setText("Not confirmed yet");
                                 deliConBut.setText("Delivery Confirm");
                             } else {
-                                deliCon.setText("Delivery Confirmation: Confirmed");
+                                deliCon.setText("Confirmed");
                                 deliConBut.setText("Undo Confirm");
                             }
                         }

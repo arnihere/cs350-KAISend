@@ -111,10 +111,10 @@ public class RequesterConfirmation extends AppCompatActivity {
                             DeadLine.setText(deadline);
                             FDest.setText(finalDest);
                             Idest.setText(initDest);
-                            Iprice.setText(price);
+                            Iprice.setText(price+" Won");
                             Iname.setText(name);
                             Itype.setText(type);
-                            payCost.setText(payment);
+                            payCost.setText(payment+" Won");
 
                             if (paymentConfirm == false) {
                                 payCon.setText("Not confirmed yet");

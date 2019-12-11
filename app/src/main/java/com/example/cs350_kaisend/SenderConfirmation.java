@@ -105,16 +105,16 @@ public class SenderConfirmation extends AppCompatActivity {
                             Integer price = dataSnapshot.child("item/price").getValue(Integer.class);
                             String type = dataSnapshot.child("item/type").getValue(String.class);
                             Integer payment = dataSnapshot.child("payment").getValue(Integer.class);
-
-
+                            String priceS = Integer.toString(price);
+                            String paymentS = Integer.toString(payment);
                             Log.w("DeadLine", deadline);
                             DeadLine.setText(deadline);
                             FDest.setText(finalDest);
                             Idest.setText(initDest);
-                            Iprice.setText(price);
+                            Iprice.setText(priceS+ " Won");
                             Iname.setText(name);
                             Itype.setText(type);
-                            payCost.setText(payment);
+                            payCost.setText(paymentS+" Won");
 
 
                             if (paymentConfirm == false) {

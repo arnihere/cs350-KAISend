@@ -38,6 +38,26 @@ public class Main2Activity extends AppCompatActivity {
         uid = user.getUid();
         Log.d("Arggggggg", "users/" + uid + "/deliveries");
 
+        DatabaseReference userBanRef = database.getReference("users/" + uid+"/banned");
+        userBanRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                //   Get Post object and use the values to update the UI
+                Boolean banned = dataSnapshot.getValue(Boolean.class);
+                if (banned) {
+                    FirebaseAuth.getInstance().signOut();
+                    Intent I = new Intent(Main2Activity.this, MainActivity.class);
+                    startActivity(I);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("readDeliveriesError", "loadPost:onCancelled", databaseError.toException());
+            }
+        });
 
         btnLogOut = findViewById(R.id.btnLogOut);
         makeClaimButton = findViewById(R.id.btnClaim);

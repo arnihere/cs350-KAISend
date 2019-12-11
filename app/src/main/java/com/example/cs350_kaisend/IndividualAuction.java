@@ -145,7 +145,12 @@ public class IndividualAuction extends AppCompatActivity {
                                     String deadline = someAuction.getString("deadline");
                                     String initDest = someAuction.getString("initDest");
                                     String finalDest = someAuction.getString("finalDest");
-                                    int price = Integer.parseInt(someAuction.getString("price"));
+                                    int price;
+                                    if(someAuction.getString("price").isEmpty()){
+                                        price =0;
+                                    }
+                                    else{
+                                        price = Integer.parseInt(someAuction.getString("price"));}
                                     String hoster = someAuction.getString("owner");
                                     JSONObject winnerjson = (JSONObject) someAuction.get("winner");
                                     String name = someAuction.getString("name");

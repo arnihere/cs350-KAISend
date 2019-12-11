@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 if (user != null) {
                     Toast.makeText(MainActivity.this, "User logged in ", Toast.LENGTH_SHORT).show();
                     Intent I = new Intent(MainActivity.this, Main2Activity.class);
-                    if(user.getEmail().equals("admin@kaist.ac.kr")){
+                    if(isAdmin(user.getEmail())){
                         I = new Intent (MainActivity.this, ClaimActivity.class);
                         Toast.makeText(MainActivity.this, "Logged in as admin", Toast.LENGTH_SHORT).show();
                     }
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                             if (!task.isSuccessful()) {
                                 Toast.makeText(MainActivity.this, "Not sucessfull", Toast.LENGTH_SHORT).show();
                             } else {
-                                if (userEmail.equals("admin@kaist.ac.kr")){
+                                if (isAdmin(userEmail)){
                                     //startActivity(new Intent(MainActivity.this, ClaimActivity.class));
                                 }
                                 //startActivity(new Intent(MainActivity.this, Main2Activity.class));
@@ -93,5 +93,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         firebaseAuth.addAuthStateListener(authStateListener);
+    }
+    public boolean isAdmin(String email){
+        return email.equals("admin@kaist.ac.kr");
     }
 }

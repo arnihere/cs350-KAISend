@@ -78,7 +78,7 @@ public class AuctionCreation extends AppCompatActivity {
                 String fee = mDelivery.getText().toString();
                 String description = "Need to get " + name + " from " + initDest + " to " + finalDest + " until " +
                         deadline + ". " + "Item's price is " + price + "Delivery fee is " +  fee + ".";
-                if (isValid(name, initDest, finalDest,deadline, fee, price)){
+                if (!isValid(name, initDest, finalDest,deadline, fee, price)){
                     Toast.makeText(getApplicationContext(), "Some of the field(s) are empty or fee/price is not digits only! ", Toast.LENGTH_SHORT);
                     return;
                 }
